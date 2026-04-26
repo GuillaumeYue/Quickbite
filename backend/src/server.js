@@ -12,7 +12,8 @@ const orderRoutes = require('./routes/orderRoutes');
 
 const app = express();
 
-app.use(cors());
+const clientOrigin = process.env.CLIENT_ORIGIN || '*';
+app.use(cors({ origin: clientOrigin }));
 app.use(express.json());
 
 connectDB();
@@ -27,7 +28,7 @@ app.use('/api/orders', orderRoutes);
 
 const server = http.createServer(app);
 const io = new Server(server, {
-  cors: { origin: '*' }
+  cors: { origin: clientOrigin }
 });
 
 app.set('io', io);
