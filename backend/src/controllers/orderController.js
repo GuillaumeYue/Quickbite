@@ -44,6 +44,11 @@ async function createOrder(req, res) {
     });
     await order.save();
 
+    const io = req.app.get('io');
+    if (io) {
+      io.to('staff').emit('order:new', order);
+    }
+
     res.status(201).json(order);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -94,6 +99,13 @@ async function updateStatus(req, res) {
     }
     order.status = status;
     await order.save();
+
+    const io = req.app.get('io');
+    if (io) {
+      io.to('staff').emit('order:status', order);
+      io.to('user:' + order.customer.toString()).emit('order:status', order);
+    }
+
     res.json(order);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -116,6 +128,13 @@ async function cancelOrder(req, res) {
     }
     order.status = 'cancelled';
     await order.save();
+
+    const io = req.app.get('io');
+    if (io) {
+      io.to('staff').emit('order:status', order);
+      io.to('user:' + order.customer.toString()).emit('order:status', order);
+    }
+
     res.json(order);
   } catch (err) {
     res.status(500).json({ message: err.message });
