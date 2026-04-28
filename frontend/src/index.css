@@ -1,13 +1,1 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-}
-
-.app {
-  max-width: 700px;
-  margin: 60px auto;
-  padding: 20px;
-  background: white;
-  border-radius: 8px;
-}
+@import './styles/theme.css';
