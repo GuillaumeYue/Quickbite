@@ -19,9 +19,7 @@ function Landing() {
           <Link to="/register" className="landing-cta secondary">Sign up</Link>
         </div>
         <div className="landing-hero-art">
-          <div className="dot d1"></div>
-          <div className="dot d2"></div>
-          <div className="bowl"></div>
+          <img src="/images/hero.png" alt="People cooking together" />
         </div>
       </section>
 
