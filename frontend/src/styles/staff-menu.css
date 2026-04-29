@@ -1,0 +1,224 @@
+.staff-menu-table {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.staff-menu-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 100px 90px 100px 120px;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.staff-menu-row:last-child {
+  border-bottom: none;
+}
+
+.staff-menu-row.head {
+  background: var(--color-bg);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.staff-menu-thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: var(--color-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  font-size: 18px;
+  font-weight: 700;
+  overflow: hidden;
+}
+
+.staff-menu-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.staff-menu-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.staff-menu-desc {
+  font-size: 12px;
+  color: var(--color-text-soft);
+  margin-top: 2px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.staff-menu-cat {
+  font-size: 12px;
+  text-transform: capitalize;
+  color: var(--color-text-soft);
+}
+
+.staff-menu-price {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.staff-toggle {
+  background: none;
+  border: 1px solid var(--color-border);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  cursor: pointer;
+  color: var(--color-text-soft);
+}
+
+.staff-toggle.on {
+  background: #d6f5e3;
+  color: #0e7a3e;
+  border-color: #b9e9cb;
+}
+
+.staff-toggle.off {
+  background: #fdecec;
+  color: var(--color-danger);
+  border-color: #f5c4c4;
+}
+
+.staff-row-actions {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 59, 54, 0.4);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.modal {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 28px;
+  box-shadow: var(--shadow-md);
+}
+
+.modal h2 {
+  margin: 0 0 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.modal .field {
+  margin-bottom: 14px;
+}
+
+.modal .field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--color-text);
+}
+
+.modal .field input,
+.modal .field select,
+.modal .field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--color-bg);
+  outline: none;
+  resize: vertical;
+}
+
+.modal .field input:focus,
+.modal .field select:focus,
+.modal .field textarea:focus {
+  border-color: var(--color-primary);
+}
+
+.modal .row {
+  display: flex;
+  gap: 12px;
+}
+
+.modal .row .field {
+  flex: 1;
+}
+
+.modal-foot {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal-foot button {
+  padding: 11px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.modal-foot .save {
+  flex: 1;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+}
+
+.modal-foot .save:hover {
+  background: var(--color-primary-dark);
+}
+
+.modal-foot .save:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.modal-foot .cancel {
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-soft);
+}
+
+.modal-foot .cancel:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.modal-error {
+  background: #fdecec;
+  color: var(--color-danger);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  margin-bottom: 14px;
+}
