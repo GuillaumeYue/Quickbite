@@ -18,14 +18,14 @@ function App() {
 
   return (
     <Routes>
+      <Route path="/" element={<Landing />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/" element={<CustomerLayout />}>
-        <Route index element={<Landing />} />
-        <Route path="menu" element={<Menu />} />
-        <Route path="cart" element={<RequireAuth><Cart /></RequireAuth>} />
-        <Route path="orders" element={<RequireAuth><MyOrders /></RequireAuth>} />
-        <Route path="orders/:id" element={<RequireAuth><OrderDetail /></RequireAuth>} />
+      <Route element={<RequireAuth><CustomerLayout /></RequireAuth>}>
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/orders" element={<MyOrders />} />
+        <Route path="/orders/:id" element={<OrderDetail />} />
       </Route>
       <Route path="/staff" element={<RequireRole roles={staffRoles}><StaffLayout /></RequireRole>}>
         <Route index element={<StaffOrders />} />

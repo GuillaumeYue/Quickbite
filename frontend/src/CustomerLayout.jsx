@@ -10,11 +10,10 @@ function CustomerLayout() {
   return (
     <div className="customer-layout">
       <header className="customer-header">
-        <Link to="/" className="brand">QuickBite</Link>
+        <Link to="/menu" className="brand">QuickBite</Link>
         <nav className="customer-nav">
-          <NavLink to="/" end>Home</NavLink>
           <NavLink to="/menu">Menu</NavLink>
-          {user ? <NavLink to="/orders">My Orders</NavLink> : null}
+          <NavLink to="/orders">My Orders</NavLink>
           {user && (user.role === 'staff' || user.role === 'admin') ? (
             <NavLink to="/staff/orders">Staff</NavLink>
           ) : null}
@@ -29,12 +28,7 @@ function CustomerLayout() {
               <span className="user-name">Hi, {user.name}</span>
               <button onClick={logout} className="link-btn">Log out</button>
             </div>
-          ) : (
-            <div className="auth-actions">
-              <Link to="/login">Log in</Link>
-              <Link to="/register" className="btn-primary">Sign up</Link>
-            </div>
-          )}
+          ) : null}
         </div>
       </header>
       <main className="customer-main">
