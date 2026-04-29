@@ -56,15 +56,15 @@ const items = [
     description: 'House brewed black tea with fresh lemon and a touch of honey, served over ice.',
     price: 4.50,
     category: 'drinks',
-    imageUrl: '',
+    imageUrl: '/images/ice-lemon-tea.jpeg',
     available: true
   },
   {
     name: 'Sparkling Water',
-    description: 'Chilled sparkling water, 500ml bottle.',
+    description: 'Chilled sparkling mineral water, 500ml bottle.',
     price: 3.00,
     category: 'drinks',
-    imageUrl: '',
+    imageUrl: '/images/sparkling-water.jpg',
     available: true
   }
 ];
