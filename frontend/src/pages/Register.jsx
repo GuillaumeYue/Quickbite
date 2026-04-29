@@ -27,7 +27,7 @@ function Register() {
     setSubmitting(true);
     try {
       await register(name, email, password);
-      navigate('/');
+      navigate('/menu');
     } catch (err) {
       const msg = err.response && err.response.data && err.response.data.message;
       setError(msg || 'Sign up failed');
@@ -37,18 +37,13 @@ function Register() {
 
   return (
     <div className="auth-page">
-      <div className="auth-side">
-        <div className="auth-brand">QuickBite</div>
-        <div>
-          <h2>Create your account</h2>
-          <p>Sign up to place orders, save your favorites, and get live updates as the kitchen prepares your meal.</p>
-        </div>
-        <div style={{ fontSize: 12, color: '#9bb3b0' }}>Trends in Technology W2026</div>
+      <div className="auth-side auth-side-register">
+        <Link to="/" className="auth-brand">QuickBite</Link>
       </div>
       <div className="auth-main">
         <div className="auth-card">
-          <h1>Sign up</h1>
-          <p className="auth-sub">It only takes a minute.</p>
+          <h1>Welcome to QuickBite!</h1>
+          <p className="auth-sub">Sign up to place orders and get live updates.</p>
           {error ? <div className="auth-error">{error}</div> : null}
           <form onSubmit={handleSubmit}>
             <div className="auth-field">

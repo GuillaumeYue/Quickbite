@@ -6,31 +6,29 @@
 
 .auth-side {
   flex: 1;
-  background: var(--color-primary);
-  color: #fff;
-  padding: 48px;
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
+  background: var(--color-primary) center/cover no-repeat;
+  position: relative;
 }
 
-.auth-side h2 {
-  font-size: 28px;
-  font-weight: 600;
-  margin: 0;
+.auth-side-login {
+  background-image: url('/images/hero.png');
 }
 
-.auth-side p {
-  margin-top: 16px;
-  color: #cfe0dd;
-  font-size: 15px;
-  line-height: 1.6;
+.auth-side-register {
+  background-image: url('/images/french-toast.png');
 }
 
 .auth-side .auth-brand {
-  font-size: 22px;
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  font-size: 18px;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.3px;
+  z-index: 2;
 }
 
 .auth-main {

@@ -17,7 +17,7 @@ function Login() {
     setSubmitting(true);
     try {
       await login(email, password);
-      navigate('/');
+      navigate('/menu');
     } catch (err) {
       const msg = err.response && err.response.data && err.response.data.message;
       setError(msg || 'Login failed');
@@ -27,18 +27,13 @@ function Login() {
 
   return (
     <div className="auth-page">
-      <div className="auth-side">
-        <div className="auth-brand">QuickBite</div>
-        <div>
-          <h2>Welcome back</h2>
-          <p>Order from your favorite spot in a few taps. Track your order live from the kitchen to your table.</p>
-        </div>
-        <div style={{ fontSize: 12, color: '#9bb3b0' }}>Trends in Technology W2026</div>
+      <div className="auth-side auth-side-login">
+        <Link to="/" className="auth-brand">QuickBite</Link>
       </div>
       <div className="auth-main">
         <div className="auth-card">
-          <h1>Log in</h1>
-          <p className="auth-sub">Use your email and password to continue.</p>
+          <h1>Welcome Back!</h1>
+          <p className="auth-sub">Log in to your account to continue.</p>
           {error ? <div className="auth-error">{error}</div> : null}
           <form onSubmit={handleSubmit}>
             <div className="auth-field">
