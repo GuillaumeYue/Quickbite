@@ -19,6 +19,26 @@ Today: Apr 25, 2026 (Sat)
 - [ ] Day 11 - May 1 (Fri) - Buffer / E2E test
 - [ ] Day 12 - May 2 (Sat) - Demo video + submit
 
+## Next session pending
+
+Pick up here next time. Flag this to Alex at start of next session.
+
+1. Save the 11 screenshots from the previous chat into `~/Desktop/Quickbite Screenshots/` with the names below (10 unique, the menu page one is duplicated):
+   - 01-landing-top.png
+   - 02-landing-bottom.png
+   - 03-login.png
+   - 04-menu.png
+   - 05-item-drawer.png
+   - 06-cart.png
+   - 07-order-detail.png
+   - 08-staff-orders.png
+   - 09-staff-menu.png
+   - 10-staff-add-item.png
+2. Combine 01 and 02 vertically into landing-full.png using PIL (script can be inline).
+3. Mirror all into `quickbite/docs/screenshots/` so README references resolve on GitHub.
+4. Rewrite README.md to a proper feature walkthrough with the screenshots inlined (sections: overview, tech stack, features per role, quick start, project structure, test accounts, image credits).
+5. Commit and push.
+
 ## Design Decisions
 
 ### Reference
