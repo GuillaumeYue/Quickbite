@@ -84,19 +84,27 @@ async function run() {
   }
 
   let added = 0;
+  let updated = 0;
   for (let i = 0; i < items.length; i++) {
     const it = items[i];
     const existing = await MenuItem.findOne({ name: it.name });
     if (existing) {
-      console.log('skip (already exists): ' + it.name);
-      continue;
+      existing.description = it.description;
+      existing.price = it.price;
+      existing.category = it.category;
+      existing.imageUrl = it.imageUrl;
+      existing.available = it.available;
+      await existing.save();
+      updated = updated + 1;
+      console.log('updated: ' + it.name);
+    } else {
+      await MenuItem.create(it);
+      added = added + 1;
+      console.log('added: ' + it.name);
     }
-    await MenuItem.create(it);
-    added = added + 1;
-    console.log('added: ' + it.name);
   }
 
-  console.log('done. ' + added + ' new items added.');
+  console.log('done. ' + added + ' added, ' + updated + ' updated.');
   await mongoose.disconnect();
 }
 
