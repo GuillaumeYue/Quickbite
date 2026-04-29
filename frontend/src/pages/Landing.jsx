@@ -1,60 +1,109 @@
 import { Link } from 'react-router-dom';
 import '../styles/landing.css';
 
-const cats = [
-  { key: 'mains', label: 'Mains', emoji: 'M', desc: 'Bowls, plates, classics' },
-  { key: 'sides', label: 'Sides', emoji: 'S', desc: 'Fries, salads, dips' },
-  { key: 'drinks', label: 'Drinks', emoji: 'D', desc: 'Soda, tea, juice' },
-  { key: 'dessert', label: 'Dessert', emoji: 'B', desc: 'Sweet stuff' }
+const specials = [
+  {
+    name: 'Garlic Shrimp Pasta',
+    desc: 'Pan seared shrimp tossed with angel hair pasta, cherry tomatoes and chives.',
+    image: '/images/seafood-pasta.png'
+  },
+  {
+    name: 'Italian Meatballs',
+    desc: 'House made beef and pork meatballs over fresh arugula with sea salt.',
+    image: '/images/meatballs.png'
+  },
+  {
+    name: 'Cheeseburger Deluxe',
+    desc: 'Beef patty with cheddar, fried egg, bacon and crisp veggies. Served with fries.',
+    image: '/images/burger.png'
+  }
 ];
 
 function Landing() {
   return (
-    <div>
+    <div className="landing-page">
+      <header className="landing-header">
+        <Link to="/" className="landing-brand">QuickBite</Link>
+        <nav className="landing-nav">
+          <Link to="/">Home</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/register" className="landing-signup">Sign Up</Link>
+        </nav>
+      </header>
+
       <section className="landing-hero">
         <div className="landing-hero-text">
-          <h1>Order food fast,<br /><span className="accent">eat fresh</span></h1>
-          <p>Browse the menu, place your order in a few taps, and watch the kitchen prepare it in real time. No phone calls, no waiting in line.</p>
-          <Link to="/menu" className="landing-cta">Browse menu</Link>
-          <Link to="/register" className="landing-cta secondary">Sign up</Link>
+          <h1>Order <span className="accent">food</span> anytime,<br />anywhere</h1>
+          <p>Browse our menu, place your order in a few taps, and watch the kitchen prepare it in real time. Affordable, tasty and fast.</p>
+          <div className="landing-cta-row">
+            <Link to="/register" className="landing-cta">Sign up free</Link>
+            <Link to="/login" className="landing-cta secondary">Log in</Link>
+          </div>
         </div>
         <div className="landing-hero-art">
-          <img src="/images/hero.png" alt="People cooking together" />
+          <img src="/images/ramen.png" alt="Bowl of ramen" />
         </div>
       </section>
 
-      <section className="landing-section">
-        <h2>Browse by category</h2>
-        <div className="landing-cats">
-          {cats.map(function(c) {
+      <section className="landing-specials">
+        <h2>Special Meals of the day!</h2>
+        <p className="specials-sub">Check our specials of the day and try our most popular dishes, prepared fresh and served hot.</p>
+        <div className="specials-row">
+          {specials.map(function(s) {
             return (
-              <Link key={c.key} to={'/menu?cat=' + c.key} className="cat-card">
-                <div className="cat-emoji">{c.emoji}</div>
-                <h3>{c.label}</h3>
-                <p>{c.desc}</p>
-              </Link>
+              <div key={s.name} className="special-card">
+                <div className="special-img">
+                  <img src={s.image} alt={s.name} />
+                </div>
+                <h3>{s.name}</h3>
+                <p>{s.desc}</p>
+              </div>
             );
           })}
         </div>
       </section>
 
-      <section className="landing-section">
-        <h2>Why QuickBite</h2>
-        <div className="landing-features">
-          <div className="feature">
-            <h3>Live order updates</h3>
-            <p>See your order move from the kitchen to ready for pickup without refreshing.</p>
+      <section className="landing-newsletter">
+        <div className="newsletter-text">
+          <h2>Get notified when we update!</h2>
+          <p>Get notified when we add new items to our menu, change prices or run promotions.</p>
+        </div>
+        <form className="newsletter-form" onSubmit={function(e) { e.preventDefault(); alert('Thanks! We will keep you posted.'); }}>
+          <input type="email" placeholder="you@example.com" required />
+          <button type="submit">Get notified</button>
+        </form>
+      </section>
+
+      <footer className="landing-footer">
+        <div className="footer-cols">
+          <div>
+            <h4>Company</h4>
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Contact Us</a>
           </div>
-          <div className="feature">
-            <h3>Pay in CAD</h3>
-            <p>Prices in Canadian dollars, no surprise conversions at checkout.</p>
+          <div>
+            <h4>Support</h4>
+            <a href="#">Help Center</a>
+            <a href="#">Safety Center</a>
           </div>
-          <div className="feature">
-            <h3>Save your favorites</h3>
-            <p>Reorder your usual in one tap from your order history.</p>
+          <div>
+            <h4>Legal</h4>
+            <a href="#">Cookies Policy</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+          <div>
+            <h4>Follow us</h4>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+            <a href="#">YouTube</a>
           </div>
         </div>
-      </section>
+        <div className="footer-bottom">
+          (c) 2026 QuickBite. All rights reserved.
+        </div>
+      </footer>
     </div>
   );
 }
