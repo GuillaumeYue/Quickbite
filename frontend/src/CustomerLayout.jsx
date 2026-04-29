@@ -15,6 +15,9 @@ function CustomerLayout() {
           <NavLink to="/" end>Home</NavLink>
           <NavLink to="/menu">Menu</NavLink>
           {user ? <NavLink to="/orders">My Orders</NavLink> : null}
+          {user && (user.role === 'staff' || user.role === 'admin') ? (
+            <NavLink to="/staff/orders">Staff</NavLink>
+          ) : null}
         </nav>
         <div className="customer-actions">
           <Link to="/cart" className="cart-btn" aria-label="Cart">
