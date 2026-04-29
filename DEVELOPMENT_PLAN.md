@@ -10,11 +10,12 @@ Today: Apr 25, 2026 (Sat)
 - [x] Day 3 - Apr 23 (Thu) - Auth (signup, login, middleware)
 - [x] Day 4 - Apr 24 (Fri) - Menu items CRUD
 - [x] Day 5 - Apr 25 (Sat) - Orders CRUD
-- [ ] Day 6 - Apr 26 (Sun) - Socket.IO + deploy backend (doing today, pulled forward)
-- [ ] Day 7 - Apr 27 (Sun) - Frontend foundation + Login + Register
-- [ ] Day 8 - Apr 28 (Mon) - Landing + Menu page + item detail
-- [ ] Day 9 - Apr 29 (Tue) - Cart + place order + my orders + WebSocket
-- [ ] Day 10 - Apr 30 (Wed) - Staff dashboard + menu management + deploy frontend
+- [x] Day 6 - Apr 26 (Sun) - Socket.IO + deploy backend
+- [x] Day 7 - Apr 27 (Sun) - Frontend foundation + Login + Register
+- [x] Day 8 - Apr 28 (Mon) - Landing + Menu page + item detail
+- [x] Day 9 - Apr 29 (Tue) - Cart + place order + my orders + WebSocket
+- [x] Day 10 - Apr 30 (Wed) - Staff dashboard + menu management
+- [ ] Frontend deploy on Render
 - [ ] Day 11 - May 1 (Fri) - Buffer / E2E test
 - [ ] Day 12 - May 2 (Sat) - Demo video + submit
 
@@ -152,16 +153,24 @@ Internal order status -> what staff sees -> what customer sees
 - Wire up socket.io-client on customer side
 - Subscribe to order:status for live status updates
 
-## Day 10 - Apr 30 (Wed) - Staff dashboard + menu management + deploy frontend
+## Day 10 - Apr 30 (Wed) - Staff dashboard + menu management (DONE)
 
-- Staff Sidebar (Home / Order History / Menu Management / Statistics / Logout)
-- Order wall page (status filter chips, 3-column order cards)
-- Action buttons per status (Accept/Reject/Mark Ready/Mark Completed)
-- Subscribe to order:new and order:status (live updates)
-- Order History page (filter for completed and cancelled)
-- Menu management page (cards with Edit/Delete + Add New Item modal)
-- Build and deploy frontend as Static Site on Render
-- Update CLIENT_ORIGIN env var on backend service
+- RequireRole gate (staff and admin only)
+- StaffLayout sidebar (Orders / Menu / Customer view / Log out)
+- Staff Orders page (status filter chips with counts, grid of order cards)
+- Action buttons per status (Accept/Reject for pending, Mark ready for preparing, Mark completed for ready)
+- Subscribe to order:new (prepend new orders) and order:status (update existing) for live wall
+- Staff Menu page (table layout with thumb / name / category / price / available toggle / edit / delete)
+- MenuItemForm modal for add and edit (name, description, price CAD, category, image url, available)
+- Delete only visible to admin role
+- Customer header shows Staff link when logged in user has staff or admin role
+- public/_redirects for SPA fallback when deployed as Render Static Site
+
+## Frontend deploy on Render
+
+- Static Site, root directory frontend, build command `npm install && npm run build`, publish path `dist`
+- Add VITE_API_URL env var pointing to the deployed backend URL
+- After deploy, update backend CLIENT_ORIGIN env var to the new frontend URL
 
 ## Day 11 - May 1 (Fri) - Buffer / E2E test
 
